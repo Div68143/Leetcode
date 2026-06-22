@@ -7,6 +7,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/Div68143/Leetcode/tree/master/0001-two-sum) |
+| [0283-move-zeroes](https://github.com/Div68143/Leetcode/tree/master/0283-move-zeroes) |
 | [1833-maximum-ice-cream-bars](https://github.com/Div68143/Leetcode/tree/master/1833-maximum-ice-cream-bars) |
 ## Hash Table
 |  |
@@ -36,4 +37,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [1833-maximum-ice-cream-bars](https://github.com/Div68143/Leetcode/tree/master/1833-maximum-ice-cream-bars) |
+## Two Pointers
+|  |
+| ------- |
+| [0283-move-zeroes](https://github.com/Div68143/Leetcode/tree/master/0283-move-zeroes) |
 <!---LeetCode Topics End-->

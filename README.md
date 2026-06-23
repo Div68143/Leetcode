@@ -41,4 +41,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0283-move-zeroes](https://github.com/Div68143/Leetcode/tree/master/0283-move-zeroes) |
+## Dynamic Programming
+|  |
+| ------- |
+| [3699-number-of-zigzag-arrays-i](https://github.com/Div68143/Leetcode/tree/master/3699-number-of-zigzag-arrays-i) |
+## Prefix Sum
+|  |
+| ------- |
+| [3699-number-of-zigzag-arrays-i](https://github.com/Div68143/Leetcode/tree/master/3699-number-of-zigzag-arrays-i) |
 <!---LeetCode Topics End-->

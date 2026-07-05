@@ -3,44 +3,34 @@ class Solution:
         MOD = 10**9 + 7
         n = len(board)
         
-        # dp[r][c] = (max_sum, count)
         INF = float('-inf')
-        dp = [[(INF, 0)] * n for _ in range(n)]
+        dp_sum = [[INF] * n for _ in range(n)]
+        dp_cnt = [[0]   * n for _ in range(n)]
         
-        # Start at S = bottom-right
-        dp[n-1][n-1] = (0, 1)
+        dp_sum[n-1][n-1] = 0
+        dp_cnt[n-1][n-1] = 1
         
-        # Fill DP from bottom-right to top-left
         for r in range(n-1, -1, -1):
             for c in range(n-1, -1, -1):
-                if board[r][c] == 'X':
-                    continue
-                if dp[r][c][1] == 0:  # unreachable
+                if board[r][c] == 'X' or dp_cnt[r][c] == 0:
                     continue
                 
-                curr_sum, curr_cnt = dp[r][c]
+                curr_sum = dp_sum[r][c]
+                curr_cnt = dp_cnt[r][c]
+                val = int(board[r][c]) if board[r][c].isdigit() else 0
                 
-                # Current cell value (S and E contribute 0)
-                val = 0
-                if board[r][c].isdigit():
-                    val = int(board[r][c])
-                
-                # Move to: up (r-1,c), left (r,c-1), up-left (r-1,c-1)
                 for nr, nc in [(r-1, c), (r, c-1), (r-1, c-1)]:
-                    if nr < 0 or nc < 0:
-                        continue
-                    if board[nr][nc] == 'X':
+                    if nr < 0 or nc < 0 or board[nr][nc] == 'X':
                         continue
                     
                     new_sum = curr_sum + val
-                    prev_sum, prev_cnt = dp[nr][nc]
                     
-                    if new_sum > prev_sum:
-                        dp[nr][nc] = (new_sum, curr_cnt % MOD)
-                    elif new_sum == prev_sum:
-                        dp[nr][nc] = (prev_sum, (prev_cnt + curr_cnt) % MOD)
+                    if new_sum > dp_sum[nr][nc]:
+                        dp_sum[nr][nc] = new_sum
+                        dp_cnt[nr][nc] = curr_cnt % MOD
+                    elif new_sum == dp_sum[nr][nc]:
+                        dp_cnt[nr][nc] = (dp_cnt[nr][nc] + curr_cnt) % MOD
         
-        best_sum, best_cnt = dp[0][0]
-        if best_cnt == 0:
+        if dp_cnt[0][0] == 0:
             return [0, 0]
-        return [best_sum, best_cnt % MOD]
+        return [dp_sum[0][0], dp_cnt[0][0] % MOD]
